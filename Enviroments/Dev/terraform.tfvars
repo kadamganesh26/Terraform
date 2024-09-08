@@ -158,37 +158,3 @@ devassonsg = {
     network_security_group_id = "for_http_allowed"
   }
 }
-#Backend for tfstate file.
-# backend = {
-#   stg1 = {
-#     name                     = "frontstorg"
-#     resource_group_name      = "ganesh"
-#     location                 = "west us"
-#     account_tier             = "Standard"
-#     account_replication_type = "LRS"
-#   }
-# }
-
-#LB values
-# Loadbalabcer = {
-#   lb1 = {
-#     name_lb             = "frontlb"
-#     resource_group_name = "ganesh"
-#     location            = "west us"
-#     name_pool           = "backendpool"
-#     name_probe          = "H1"
-#     name_rule           = "LBRule1"
-#     name_address_pool   = "frontendpool"
-#     name_data_pip       = "lbpip"
-#     name_vnet           = "frontendvnet"
-   
-
-
-
-#   }
-#   frontend_ip_configuration = {
-#     name = "fontendpubip"
-
-#   }
-
-

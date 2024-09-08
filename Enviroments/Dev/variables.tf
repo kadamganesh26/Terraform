@@ -6,6 +6,4 @@ variable "public_ip" {}
 variable "dev_bastion" {}
 variable "dev_vms" {}
 variable "nsg" {}
-# variable"backend"{}
-# variable "Loadbalabcer" {}
 variable "devassonsg" {}

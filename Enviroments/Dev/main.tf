@@ -46,13 +46,4 @@ module "nsgass" {
   source = "../../Child/9 Azurerm_Network_Security_group_association"
   childasso=var.devassonsg
 }
-# module "backedn" {
-#   depends_on  = [module.dev_rgs]
-#   source      = "../../Child/10 Azurerm_Storage_Account"
-#   backendstrg = var.backend
-# }
-# module "loadlb" {
-#   depends_on = [ module.public_ip, module.dev_rgs, module.dev_vnet, module.dev_sub]
-#   source = "../../Child/11 Azurerm_Lead_Balancer"
-#   child_lb=var.Loadbalabcer
-# }
+
