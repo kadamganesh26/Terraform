@@ -37,13 +37,20 @@ module "linux_vm" {
   child_vms  = var.dev_vms
 }
 module "nsg" {
-  depends_on = [module.dev_rgs, module.dev_nic,module.dev_vnet]
+  depends_on = [module.dev_rgs, module.dev_nic, module.dev_vnet]
   source     = "../../Child/8 Azurerm_Network_Security Group"
   child_nsg  = var.nsg
 }
 module "nsgass" {
-  depends_on = [ module.dev_vnet,module.dev_rgs, module.dev_vnet, module.dev_sub]
-  source = "../../Child/9 Azurerm_Network_Security_group_association"
-  childasso=var.devassonsg
+  depends_on = [module.dev_vnet, module.dev_rgs, module.dev_vnet, module.dev_sub, module.nsg]
+  source     = "../../Child/9 Azurerm_Network_Security_group_association"
+  childasso  = var.devassonsg
+}
+module "lb" {
+  depends_on  = [module.dev_nic, module.linux_vm, module.dev_rgs, module.dev_vnet]
+  source      = "../../Child/11 Azurerm_Lead_Balancer"
+  child_lb    = var.lb_details
+  child_lbnic = var.lbnic_details
+
 }
 

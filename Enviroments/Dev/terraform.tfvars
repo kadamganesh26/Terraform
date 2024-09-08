@@ -158,3 +158,28 @@ devassonsg = {
     network_security_group_id = "for_http_allowed"
   }
 }
+lb_details = {
+  lb1 = {
+    name                = "frontendLB"
+    location            = "west us"
+    resource_group_name = "ganesh"
+    fconfig_name        = "lbpub"
+    lbbackenpool_name   = "backendpool"
+    rule_name           = "frontendrule"
+    protocol            = "Tcp"
+    frontend_port       = 5000
+    backend_port        = 80
+    probe_name          = "hp1"
+    port                = 80
+    pipname             = "lbpip"
+  }
+}
+
+lbnic_details = {
+  lbnic1 = {
+    nicname               = "vm1nic"
+    resource_group_name   = "ganesh"
+    ip_configuration_name = "vm1_internal"
+    backend_pool_blk      = "lb1"
+  }
+}

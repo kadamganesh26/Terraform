@@ -7,3 +7,5 @@ variable "dev_bastion" {}
 variable "dev_vms" {}
 variable "nsg" {}
 variable "devassonsg" {}
+variable "lb_details" {}
+variable "lbnic_details" {}
