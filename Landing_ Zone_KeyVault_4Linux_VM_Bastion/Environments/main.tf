@@ -26,6 +26,7 @@ module "vmmol" {
   vms        = var.dev_vms
 }
 
+
 module "pipmol" {
   depends_on = [module.rgmdl]
   source     = "../Modules/Azurerm_Public_IP"
