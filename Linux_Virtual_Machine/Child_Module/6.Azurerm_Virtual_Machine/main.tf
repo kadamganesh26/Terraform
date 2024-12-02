@@ -31,6 +31,7 @@ data "azurerm_network_interface" "nic-data" {
 
 
 data "azurerm_key_vault" "key-data" {
+  
   name                = "mohit1"
   resource_group_name = "todoapp-rg"
 }
