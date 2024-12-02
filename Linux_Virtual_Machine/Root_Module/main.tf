@@ -27,14 +27,14 @@ module "paranat_pip" {
   child_pip = var.paranat_pip
 }
 module "parant_vm" {
-  depends_on = [ module.paranat_subnet,module.parant_vnet, module.paranat_nic, module.paranat-rg ]
+  depends_on = [ module.paranat_subnet,module.parant_vnet, module.paranat_nic, module.paranat-rg, module.paranat_vault]
   source = "../Child_Module/6.Azurerm_Virtual_Machine"
   child-vm = var.paranat_vm
   child_nic = var.paranat_nic 
   child-vault = var.paranat_vault
 }
 module "paranat_vault" {
-  depends_on = [ var.paranat_vm, var.parant_rg ]
+  depends_on = [ module.paranat-rg ]
   source = "../Child_Module/7.Azurerm_Key_Vault"
   child-vault = var.paranat_vault
 }
@@ -42,8 +42,7 @@ module "paranat_bastion" {
   depends_on = [module.paranat_pip, module.paranat_subnet  ]
   source = "../Child_Module/8.Azurerm_Bastion"
   child_bastion = var.paranat_bastion
-  child_pip = var.paranat_pip
-  # child_subnet = var.paranat_subnet
+ 
 
 
 }

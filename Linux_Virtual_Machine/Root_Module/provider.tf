@@ -16,4 +16,5 @@ terraform {
 provider "azurerm" {
   features {}
   subscription_id = "240b317b-8c24-46e2-a127-7e15699f5131"
+  #Ketan Account Subsriptions
 }

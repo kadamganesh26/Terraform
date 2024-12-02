@@ -19,7 +19,7 @@ parant_vnet = {
     name                = "sap-vnet"
     location            = "central india"
     resource_group_name = "sap-rg"
-    address_space       = ["10.0.0.0/23"]
+    address_space       = ["10.0.4.0/23"]
   }
 }
 
@@ -27,21 +27,21 @@ paranat_subnet = {
   sub1 = {
     name                 = "todoapp-subnet"
     resource_group_name  = "todoapp-rg"
-    address_prefixes     = ["10.0.1.0/24"]
+    address_prefixes     = ["10.0.0.0/23"]
     virtual_network_name = "todoapp-vnet"
   }
 
   sub2 = {
     name                 = "sap-subnet"
     resource_group_name  = "sap-rg"
-    address_prefixes     = ["10.0.1.0/25"]
+    address_prefixes     = ["10.0.4.0/24"]
     virtual_network_name = "sap-vnet"
   }
 
   sub3 = {
     name                 = "AzureBastionSubnet"
-    resource_group_name  = "sap-rg"
-    address_prefixes     = ["10.0.1.0/26"]
+    resource_group_name  = "todoapp-rg"
+    address_prefixes     = ["10.0.2.0/26"]
     virtual_network_name = "todoapp-vnet"
   }
 }
@@ -106,7 +106,23 @@ paranat_vm = {
       caching              = "ReadWrite"
     }
   }
+  vm2 = {
+    name                = "sap-vm"
+    location            = "central india"
+    resource_group_name = "sap-rg"
+    size                = "Standard_F2"
+    #data-block
+    #name   = "todoapp-nic"
+    nic_id = "nic2" #Value is from the nic2 values
+
+    disable_password_authentication = false
+
+    os_disk = {
+      storage_account_type = "Standard_LRS"
+      caching              = "ReadWrite"
+    }
 }
+  }
 
 paranat_vault = {
   keyvault = {
@@ -114,18 +130,19 @@ paranat_vault = {
     location                    = "west us"
     resource_group_name         = "todoapp-rg"
     enabled_for_disk_encryption = true
-    # tenant_id                   = data.azurerm_client_config.current.tenant_id
     sku_name = "standard"
   }
 }
 
 paranat_bastion = {
   bastion = {
-    name                = "examplebastion"
-    location            = "west us"
-    resource_group_name = "todoapp-rg"
+    name                 = "AzureBastion"
+    location             = "west us"
+    resource_group_name  = "todoapp-rg"
+    virtual_network_name = "todoapp-vnet"
+    pip_name                  = "todoapp_pip"
     ip_configuration = {
-    name = "configuration"
+      name = "configuration"
     }
   }
 }
