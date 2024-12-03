@@ -60,20 +60,20 @@ paranat_nic = {
       virtual_network_name = "todoapp-vnet"
     }
   }
-    nic2 = {
-      name                = "sap-nic"
-      location            = "central india"
-      resource_group_name = "sap-rg"
-      ip_configuration = {
-        ipname                        = "sap-nicip"
-        private_ip_address_allocation = "Dynamic"
-        #datablock
-        name                 = "sap-subnet"
-        stname               = "sub2" #Subnet referanmce from the sub2 values 
-        virtual_network_name = "sap-vnet"
-      }
+  nic2 = {
+    name                = "sap-nic"
+    location            = "central india"
+    resource_group_name = "sap-rg"
+    ip_configuration = {
+      ipname                        = "sap-nicip"
+      private_ip_address_allocation = "Dynamic"
+      #datablock
+      name                 = "sap-subnet"
+      stname               = "sub2" #Subnet referanmce from the sub2 values 
+      virtual_network_name = "sap-vnet"
     }
   }
+}
 
 paranat_pip = {
   pip1 = {
@@ -98,14 +98,14 @@ paranat_vm = {
     size                = "Standard_F2"
     #data-block
     #name   = "todoapp-nic"
-    nic_id = "nic1" #Value is from the nic1 values
+    nic_id                          = "nic1" #Value is from the nic1 values
     disable_password_authentication = false
     os_disk = {
       storage_account_type = "Standard_LRS"
       caching              = "ReadWrite"
     }
   }
-  
+
   vm2 = {
     name                = "sap-vm"
     location            = "central india"
@@ -113,15 +113,15 @@ paranat_vm = {
     size                = "Standard_F2"
     #data-block
     #name   = "todoapp-nic"
-    nic_id = "nic2" #Value is from the nic2 blok
+    nic_id                          = "nic2" #Value is from the nic2 blok
     disable_password_authentication = false
     os_disk = {
       storage_account_type = "Standard_LRS"
       caching              = "ReadWrite"
     }
-}
   }
-  
+}
+
 
 
 paranat_vault = {
@@ -130,7 +130,7 @@ paranat_vault = {
     location                    = "west us"
     resource_group_name         = "todoapp-rg"
     enabled_for_disk_encryption = true
-    sku_name = "standard"
+    sku_name                    = "standard"
   }
 }
 
@@ -140,7 +140,7 @@ paranat_bastion = {
     location             = "west us"
     resource_group_name  = "todoapp-rg"
     virtual_network_name = "todoapp-vnet"
-    pip_name                  = "todoapp_pip"
+    pip_name             = "todoapp_pip"
     ip_configuration = {
       name = "configuration"
     }
