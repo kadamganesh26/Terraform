@@ -59,6 +59,7 @@ paranat_nic = {
       stname               = "sub1"
       virtual_network_name = "todoapp-vnet"
     }
+  }
     nic2 = {
       name                = "sap-nic"
       location            = "central india"
@@ -73,7 +74,7 @@ paranat_nic = {
       }
     }
   }
-}
+
 paranat_pip = {
   pip1 = {
     name                = "todoapp_pip"
@@ -98,14 +99,13 @@ paranat_vm = {
     #data-block
     #name   = "todoapp-nic"
     nic_id = "nic1" #Value is from the nic1 values
-
     disable_password_authentication = false
-
     os_disk = {
       storage_account_type = "Standard_LRS"
       caching              = "ReadWrite"
     }
   }
+  
   vm2 = {
     name                = "sap-vm"
     location            = "central india"
@@ -113,16 +113,16 @@ paranat_vm = {
     size                = "Standard_F2"
     #data-block
     #name   = "todoapp-nic"
-    nic_id = "nic2" #Value is from the nic2 values
-
+    nic_id = "nic2" #Value is from the nic2 blok
     disable_password_authentication = false
-
     os_disk = {
       storage_account_type = "Standard_LRS"
       caching              = "ReadWrite"
     }
 }
   }
+  
+
 
 paranat_vault = {
   keyvault = {
