@@ -1,0 +1,14 @@
+variable "frontend-rg" {}
+variable "frontend-vnet" {}
+variable "frontend-subnet" {}
+variable "frontend-nic" {}
+variable "frontend-vm1" {}
+variable "frontend-vm2" {}
+variable "frontend-nsg1-vm1" {}
+variable "frontend-nsg-asso-vm1" {}
+variable "frontend-pip" {}
+variable "lb" {}
+variable "lb-rule" {}
+variable "backend_address_pool_lb" {}
+variable "lbout_bound_rule" {}
+variable "lb-probe" {}

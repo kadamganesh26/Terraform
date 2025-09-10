@@ -1,0 +1,1 @@
+variable "nsg-asso-vm1" {}
